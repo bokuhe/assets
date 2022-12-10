@@ -285,6 +285,12 @@ alias rn-windows='npx react-native run-windows'
 alias react-init='npx create-react-app --template typescript'
 
 #-------------------------------------------------------------
+# Jekyll
+#-------------------------------------------------------------
+alias jekyll-serve='bundle exec jekyll serve'
+alias jekyll-drafts='bundle exec jekyll serve --drafts'
+
+#-------------------------------------------------------------
 # Update rc
 #-------------------------------------------------------------
 alias update-zshrc='curl -o $HOME/.zshrc https://raw.githubusercontent.com/bokuhe/assets/main/private/rc/.zshrc && source ~/.zshrc'
