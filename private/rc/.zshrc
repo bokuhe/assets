@@ -236,18 +236,19 @@ eval "$(rbenv init -)"
 #-------------------------------------------------------------
 # Node 
 #-------------------------------------------------------------
-NODE_PATH="/opt/homebrew/opt/node@16"
-[[ -d $NODE_PATH ]] && \
-export PATH="$NODE_PATH/bin:$PATH" && \
-export LDFLAGS="-L$NODE_PATH/lib" && \
-export CPPFLAGS="-I$NODE_PATH/include"
+#NODE_PATH="/opt/homebrew/opt/node@16"
+#[[ -d $NODE_PATH ]] && \
+#export PATH="$NODE_PATH/bin:$PATH" && \
+#export LDFLAGS="-L$NODE_PATH/lib" && \
+#export CPPFLAGS="-I$NODE_PATH/include"
 # sudo ln -s $(sh -c 'which node') /usr/local/bin/node
   
 #-------------------------------------------------------------
 # NVM
 #-------------------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
   
 #-------------------------------------------------------------
 # Android
