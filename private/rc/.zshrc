@@ -260,7 +260,8 @@ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HO
 #-------------------------------------------------------------
 # Flutter
 #-------------------------------------------------------------
-export PATH="$HOME/flutter/bin:$PATH"
+#export PATH="$HOME/flutter/bin:$PATH"
+export PATH="$HOME/fvm/default/bin:$PATH"
   
 #-------------------------------------------------------------
 # React Native
