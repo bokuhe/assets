@@ -220,6 +220,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 #sudo ln -sfn /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
 export JAVA_HOME=`/usr/libexec/java_home -v 11`
 export PATH="${PATH}:$JAVA_HOME/bin"
+export CPPFLAGS="-I$JAVA_HOME/include"
 
 #-------------------------------------------------------------
 # Python
