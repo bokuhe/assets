@@ -1,3 +1,6 @@
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+unset PREFIX
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -271,7 +274,7 @@ alias rn-start='npx react-native start'
 alias rn-android='npx react-native run-android'
 alias rn-ios='npx react-native run-ios'
 #alias rn-init='npx react-native init --template react-native-template-typescript@6.10.3'
-alias rn-init='npx react-native init --version 0.71.8'
+alias rn-init='npx react-native init --version 0.71.8 --skip-install'
 alias rn-pod='cd ios && pod install && cd ..'
 alias rn-gradle='cd android && sh gradlew build && cd ..'
 alias rn-install='npm i && rn-pod && rn-gradle'
