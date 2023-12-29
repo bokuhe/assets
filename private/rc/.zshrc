@@ -304,6 +304,10 @@ mkdir -p $HOME/.vim/colors
 curl -o $HOME/.vim/colors/codedark.vim https://raw.githubusercontent.com/bokuhe/vim-code-dark/master/colors/codedark.vim
 curl -o $HOME/.vimrc https://raw.githubusercontent.com/bokuhe/assets/main/private/rc/.vimrc
 )'
+alias update-nvimrc='(
+mkdir -p $HOME/.config/nvim
+curl -o $HOME/.config/nvim/init.vim https://raw.githubusercontent.com/bokuhe/assets/main/private/rc/neovim/init.vim
+)'
 
 #-------------------------------------------------------------
 # MISC.
@@ -327,3 +331,9 @@ alias sublime='open -a "Sublime Text.app"'
 
 # Add Typora
 alias typora='open -a "Typora"'
+
+# Add nvim (when installed)
+if command -v nvim > /dev/null 2>&1; then
+    alias vi='nvim'
+	alias vim='nvim'
+fi
