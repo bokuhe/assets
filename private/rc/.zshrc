@@ -309,14 +309,14 @@ curl -o $HOME/.vimrc https://raw.githubusercontent.com/bokuhe/assets/main/privat
 )'
 alias update-nvimrc='(
 mkdir -p $HOME/.config/nvim
-curl -o $HOME/.config/nvim/init.vim https://raw.githubusercontent.com/bokuhe/assets/main/private/rc/neovim/init.vim
+curl -o $HOME/.config/nvim/init.vim https://raw.githubusercontent.com/bokuhe/assets/main/private/rc/nvim/init.vim
 )'
 
 #-------------------------------------------------------------
 # MISC.
 #-------------------------------------------------------------
 
-# Add Visual Studio Code (code)
+# Add VSCode (code)
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 # Add Sourcetree
@@ -329,7 +329,7 @@ alias idea='open -na "IntelliJ IDEA.app" --args "$@"'
 alias asopen='open -na "Android Studio.app" --args "$@"'
 alias asopen-preview='open -na "Android Studio Preview.app" --args "$@"'
 
-# Add Sublime Text
+# Add SublimeText
 alias sublime='open -a "Sublime Text.app"'
 
 # Add Typora
