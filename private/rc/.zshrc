@@ -291,6 +291,7 @@ alias rn-windows='npx react-native run-windows'
 # Expo
 #-------------------------------------------------------------
 alias expo-init='npx create-expo-app -t expo-template-blank-typescript --no-install'
+alias expo-web='npx expo install react-dom react-native-web @expo/webpack-config'
   
 #-------------------------------------------------------------
 # React
