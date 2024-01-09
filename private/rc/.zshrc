@@ -286,6 +286,11 @@ alias rn-init-macos='npx react-native-macos-init'
 alias rn-macos='npx react-native run-macos'
 alias rn-init-windows='npx react-native-windows-init'
 alias rn-windows='npx react-native run-windows'
+
+#-------------------------------------------------------------
+# Expo
+#-------------------------------------------------------------
+alias expo-init='npx create-expo-app -t expo-template-blank-typescript --no-install'
   
 #-------------------------------------------------------------
 # React
