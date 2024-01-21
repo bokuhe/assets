@@ -296,7 +296,7 @@ alias rn-windows='npx react-native run-windows'
 #-------------------------------------------------------------
 # Next.js 
 #-------------------------------------------------------------
-alias next-init='npx create-next-app@latest --ts --use-yarn'
+alias next-init='npx create-next-app@latest --ts --eslint --use-yarn --src-dir --app'
   
 #-------------------------------------------------------------
 # React.js
