@@ -268,6 +268,12 @@ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HO
 export PATH="$HOME/fvm/default/bin:$PATH"
   
 #-------------------------------------------------------------
+# Expo
+#-------------------------------------------------------------
+alias expo-init='npx create-expo-app -t expo-template-blank-typescript --no-install'
+alias expo-init-web='npx expo install react-dom react-native-web @expo/webpack-config'
+
+#-------------------------------------------------------------
 # React Native
 #-------------------------------------------------------------
 alias rn-start='npx react-native start'
@@ -288,13 +294,12 @@ alias rn-init-windows='npx react-native-windows-init'
 alias rn-windows='npx react-native run-windows'
 
 #-------------------------------------------------------------
-# Expo
+# Next.js 
 #-------------------------------------------------------------
-alias expo-init='npx create-expo-app -t expo-template-blank-typescript --no-install'
-alias expo-web='npx expo install react-dom react-native-web @expo/webpack-config'
+alias next-init='npx create-next-app@latest --ts --use-yarn'
   
 #-------------------------------------------------------------
-# React
+# React.js
 #-------------------------------------------------------------
 alias react-init='npx create-react-app --template typescript'
 
