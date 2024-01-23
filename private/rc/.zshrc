@@ -272,6 +272,7 @@ export PATH="$HOME/fvm/default/bin:$PATH"
 #-------------------------------------------------------------
 alias expo-init='npx create-expo-app -t expo-template-blank-typescript --no-install'
 alias expo-init-web='yarn && npx expo install react-dom react-native-web @expo/webpack-config'
+alias expo-web='env BROWSER=safari npx expo start --web'
 
 #-------------------------------------------------------------
 # React Native
