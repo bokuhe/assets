@@ -140,7 +140,9 @@ source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #-------------------
   
 #alias rm='rm -i'
-alias rm='rmtrash'
+if command -v rmtrash >/dev/null 2>&1; then
+  alias rm='rmtrash'
+fi
 alias cp='cp -i'
 alias mv='mv -i'
 alias cl='clear'
