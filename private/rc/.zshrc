@@ -306,7 +306,7 @@ alias rn-config='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bo
 # RN Desktop
 alias rn-init-macos='npx react-native-macos-init'
 alias rn-macos='npx react-native run-macos'
-alias rn-init-windows='npx react-native-windows-init'
+alias rn-init-windows='npx react-native-windows-init --overwrite'
 alias rn-windows='npx react-native run-windows'
 
 #-------------------------------------------------------------
