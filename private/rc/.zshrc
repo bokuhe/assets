@@ -143,6 +143,10 @@ source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 if command -v rmtrash >/dev/null 2>&1; then
   alias rm='rmtrash'
 fi
+if command -v rmdirtrash >/dev/null 2>&1; then
+  alias rmdir='rmdirtrash'
+fi
+
 alias cp='cp -i'
 alias mv='mv -i'
 alias cl='clear'
