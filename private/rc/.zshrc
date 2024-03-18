@@ -344,6 +344,9 @@ curl -o $HOME/.config/nvim/init.vim https://raw.githubusercontent.com/bokuhe/ass
 # MISC.
 #-------------------------------------------------------------
 
+# scrcpy
+alias scrcpy="scrcpy --show-touches --stay-awake --no-audio -m 1024 --max-fps 60"
+
 # Add VSCode (code)
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
