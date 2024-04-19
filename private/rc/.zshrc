@@ -144,6 +144,14 @@ if command -v rmtrash >/dev/null 2>&1; then
   alias rm='rmtrash'
 fi
 
+# rm .DS_Store
+alias rmdsstore='echo "Delete all .DS_Store files in this directory and all subdirectories? (y/n): "; \
+read yn; \
+if [ "$yn" = "y" ] || [ "$yn" = "Y" ]; then \
+    find . -name ".DS_Store" -type f -exec rm {} +; \
+    echo "All .DS_Store files have been deleted."; \
+fi'
+
 alias cp='cp -i'
 alias mv='mv -i'
 alias cl='clear'
