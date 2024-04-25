@@ -236,11 +236,17 @@ export PATH="/opt/homebrew/bin:$PATH"
 #-------------------------------------------------------------
 # Java
 #-------------------------------------------------------------
-#sudo ln -sfn /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
-[[ -f "/usr/libexec/java_home" ]] &&
-export JAVA_HOME=`/usr/libexec/java_home -v 11` &&
-export PATH="${PATH}:$JAVA_HOME/bin" &&
-export CPPFLAGS="-I$JAVA_HOME/include"
+JDK_VERSION="17"
+
+if [ -d "/opt/homebrew/opt/openjdk@$JDK_VERSION/libexec/openjdk.jdk" ] && [ ! -L "/Library/Java/JavaVirtualMachines/openjdk-$JDK_VERSION.jdk" ]; then
+  sudo ln -sfn "/opt/homebrew/opt/openjdk@$JDK_VERSION/libexec/openjdk.jdk" "/Library/Java/JavaVirtualMachines/openjdk-$JDK_VERSION.jdk"
+fi
+
+if [[ -f "/usr/libexec/java_home" ]]; then
+  export JAVA_HOME=`/usr/libexec/java_home -v $JDK_VERSION`
+  export PATH="${PATH}:$JAVA_HOME/bin"
+  export CPPFLAGS="-I$JAVA_HOME/include"
+fi
 
 #-------------------------------------------------------------
 # Python
