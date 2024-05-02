@@ -325,14 +325,11 @@ alias rn-init-windows='npx react-native-windows-init --overwrite'
 alias rn-windows='npx react-native run-windows'
 
 #-------------------------------------------------------------
-# Next.js 
-#-------------------------------------------------------------
-alias next-init='npx create-next-app@latest --ts --eslint --use-yarn --src-dir'
-  
-#-------------------------------------------------------------
-# React.js
+# React, Next, vite 
 #-------------------------------------------------------------
 alias react-init='npx create-react-app --template typescript'
+alias next-init='npx create-next-app@latest --ts --eslint --use-yarn --src-dir'
+alias vite-init='yarn create vite -- --template react-ts'
 
 #-------------------------------------------------------------
 # Jekyll
