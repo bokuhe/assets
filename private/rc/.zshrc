@@ -328,7 +328,7 @@ alias rn-windows='npx react-native run-windows'
 # React, Next, vite 
 #-------------------------------------------------------------
 alias react-init='npx create-react-app --template typescript'
-alias next-init='npx create-next-app@latest --ts --eslint --use-yarn --src-dir'
+alias next-init='npx create-next-app@latest --ts --eslint --src-dir --import-alias "@/*" --no-app --no-tailwind --use-yarn'
 alias vite-init='yarn create vite -- --template react-ts'
 
 #-------------------------------------------------------------
