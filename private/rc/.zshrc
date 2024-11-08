@@ -307,15 +307,16 @@ alias expo-web='env BROWSER=safari npx expo start --web'
 #-------------------------------------------------------------
 # React Native
 #-------------------------------------------------------------
-alias rn-start='npx react-native start'
-alias rn-android='npx react-native run-android'
-alias rn-ios='npx react-native run-ios'
+alias rn='npx react-native start'
+alias rn-start='rn start'
+alias rn-android='rn run-android'
+alias rn-ios='rn run-ios'
 #alias rn-init='npx react-native init --template react-native-template-typescript@6.10.3'
 #alias rn-init='npx react-native init --version 0.73.6 --skip-install'
-alias rn-init='npx @react-native-community/cli@latest init --version 0.73.6 --skip-install'
+alias rn-init='rn init --version 0.73.6 --skip-install'
 alias rn-pod='cd ios && pod install && cd ..'
 alias rn-gradle='cd android && sh gradlew build && cd ..'
-alias rn-install='npm i && rn-pod && rn-gradle'
+alias rn-install='yarn && rn-pod && rn-gradle'
 
 alias rn-config='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bokuhe/assets/main/dev/react-native/rn-conf.sh)"'
  
