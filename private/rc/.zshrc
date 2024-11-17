@@ -317,8 +317,6 @@ alias rn-init='rn init --version 0.73.6 --skip-install'
 alias rn-pod='cd ios && pod install && cd ..'
 alias rn-gradle='cd android && sh gradlew build && cd ..'
 alias rn-install='yarn && rn-pod && rn-gradle'
-
-alias rn-config='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bokuhe/assets/main/dev/react-native/rn-conf.sh)"'
  
 # RN Desktop
 alias rn-init-macos='npx react-native-macos-init'
