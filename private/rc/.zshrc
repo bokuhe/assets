@@ -348,7 +348,7 @@ function git-tagd() {
   git tag -d $1
   git push origin --delete $1
 }
-alias git-log-since-tag="git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:'%s (%h)'"
+#alias git-log-since-tag="git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:'%s (%h)'"
 
 #-------------------------------------------------------------
 # Update rc
