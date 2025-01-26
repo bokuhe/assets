@@ -374,8 +374,11 @@ alias scrcpy="scrcpy --show-touches --stay-awake --no-audio -m 1024 --max-fps 60
 # Add VSCode (code)
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
-# Add Sourcetree
-export PATH="/Applications/SourceTree.app/Contents/Resources:$PATH"  
+# Add Fork
+#export PATH="/Applications/SourceTree.app/Contents/Resources:$PATH"  
+if command -v fork > /dev/null 2>&1; then
+    alias stree='fork'
+fi
 
 # Add IntelliJ
 alias idea='open -na "IntelliJ IDEA.app" --args "$@"'
