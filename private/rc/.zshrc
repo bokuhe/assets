@@ -300,34 +300,34 @@ export PATH="$HOME/fvm/default/bin:$PATH"
 #-------------------------------------------------------------
 # Expo
 #-------------------------------------------------------------
-alias expo-init='npx create-expo-app -t expo-template-blank-typescript --no-install'
+alias expo-init='pnpx create-expo-app -t expo-template-blank-typescript --no-install'
 alias expo-init-web='yarn && npx expo install react-dom react-native-web @expo/webpack-config'
 alias expo-web='env BROWSER=safari npx expo start --web'
 
 #-------------------------------------------------------------
 # React Native
 #-------------------------------------------------------------
-alias rn='npx react-native start'
+alias rn='pnpx react-native start'
 alias rn-start='rn start'
 alias rn-android='rn run-android'
 alias rn-ios='rn run-ios'
 #alias rn-init='npx react-native init --template react-native-template-typescript@6.10.3'
-alias rn-init='npx @react-native-community/cli init --version 0.76.7 --skip-install'
+alias rn-init='pnpx @react-native-community/cli init --version 0.76.7 --skip-install'
 alias rn-pod='cd ios && pod install && cd ..'
 alias rn-gradle='cd android && sh gradlew build && cd ..'
 alias rn-install='yarn && rn-pod && rn-gradle'
  
 # RN Desktop
-alias rn-init-macos='npx react-native-macos-init'
-alias rn-macos='npx react-native run-macos'
-alias rn-init-windows='npx react-native-windows-init --overwrite'
-alias rn-windows='npx react-native run-windows'
+alias rn-init-macos='pnpx react-native-macos-init'
+alias rn-macos='pnpx react-native run-macos'
+alias rn-init-windows='pnpx react-native-windows-init --overwrite'
+alias rn-windows='pnpx react-native run-windows'
 
 #-------------------------------------------------------------
 # React, Next, vite 
 #-------------------------------------------------------------
-alias react-init='npx create-react-app --template typescript'
-alias next-init='npx create-next-app@latest --ts --eslint --src-dir --import-alias "@/*" --no-app --no-tailwind --use-yarn'
+alias react-init='pnpx create-react-app --template typescript'
+alias next-init='pnpx create-next-app@latest --ts --eslint --src-dir --import-alias "@/*" --no-app --no-tailwind --use-yarn'
 alias vite-init='yarn create vite -- --template react-ts'
 
 #-------------------------------------------------------------
