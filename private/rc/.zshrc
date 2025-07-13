@@ -428,9 +428,9 @@ if command -v fork > /dev/null 2>&1; then
 fi
 
 # Add Cursor.ai
-if command -v cursor > /dev/null 2>&1; then
-	alias code='cursor'
-fi
+#if command -v cursor > /dev/null 2>&1; then
+#	alias code='cursor'
+#fi
 
 # Add IntelliJ
 alias idea='open -na "IntelliJ IDEA.app" --args "$@"'
