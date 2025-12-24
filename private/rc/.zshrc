@@ -18,6 +18,12 @@ export ZSH="${HOME}/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Powerlevel10k (auto-install if missing)
+P10K_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+if [[ ! -d "$P10K_DIR" ]]; then
+  echo "Installing Powerlevel10k theme..."
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$P10K_DIR"
+fi
 ZSH_THEME="powerlevel10k/powerlevel10k"
   
 # Set list of themes to pick from when loading at random
@@ -111,8 +117,32 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
   
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#-------------------------------------------------------------
+# ZSH Custom Plugins (auto-install if missing)
+#-------------------------------------------------------------
+ZSH_CUSTOM_PLUGINS=(
+  "zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting.git"
+  "zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.git"
+  "zsh-completions https://github.com/zsh-users/zsh-completions.git"
+  "zsh-z https://github.com/agkozak/zsh-z.git"
+)
+
+for plugin_entry in "${ZSH_CUSTOM_PLUGINS[@]}"; do
+  plugin_name="${plugin_entry%% *}"
+  plugin_url="${plugin_entry#* }"
+  plugin_dir="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/$plugin_name"
+
+  if [[ ! -d "$plugin_dir" ]]; then
+    echo "Installing $plugin_name..."
+    git clone --depth=1 "$plugin_url" "$plugin_dir"
+  fi
+done
+
+# Source plugins
+source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fpath+=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-completions/src
+source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-z/zsh-z.plugin.zsh
   
   
 #============================================================
