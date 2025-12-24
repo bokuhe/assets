@@ -123,7 +123,6 @@ source $ZSH/oh-my-zsh.sh
 ZSH_CUSTOM_PLUGINS=(
   "zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting.git"
   "zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.git"
-  "zsh-completions https://github.com/zsh-users/zsh-completions.git"
   "zsh-z https://github.com/agkozak/zsh-z.git"
 )
 
@@ -138,11 +137,10 @@ for plugin_entry in "${ZSH_CUSTOM_PLUGINS[@]}"; do
   fi
 done
 
-# Source plugins
-source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Source plugins (zsh-syntax-highlighting must be last)
 source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-fpath+=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-completions/src
 source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-z/zsh-z.plugin.zsh
+source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   
   
 #============================================================
