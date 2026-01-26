@@ -485,3 +485,8 @@ if command -v nvim > /dev/null 2>&1; then
 elif command -v vim > /dev/null 2>&1; then
     alias vi='vim'
 fi
+
+# Add open command (WSL only)
+if [[ "$(uname -r)" == *microsoft* ]]; then
+    alias open="explorer.exe"
+fi
