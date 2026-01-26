@@ -490,3 +490,8 @@ fi
 if [[ "$(uname -r)" == *microsoft* ]]; then
     alias open="explorer.exe"
 fi
+
+#-------------------------------------------------------------
+# Claude
+#-------------------------------------------------------------
+export PATH="$HOME/.local/bin:$PATH"
