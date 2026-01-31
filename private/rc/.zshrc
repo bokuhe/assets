@@ -270,8 +270,8 @@ if [ -d "/opt/homebrew/opt/openjdk@$JDK_VERSION/libexec/openjdk.jdk" ] && [ ! -L
   sudo ln -sfn "/opt/homebrew/opt/openjdk@$JDK_VERSION/libexec/openjdk.jdk" "/Library/Java/JavaVirtualMachines/openjdk-$JDK_VERSION.jdk"
 fi
 
-if [[ -f "/usr/libexec/java_home" ]]; then
-  export JAVA_HOME=`/usr/libexec/java_home -v $JDK_VERSION`
+if JAVA_HOME=$(/usr/libexec/java_home -v $JDK_VERSION 2>/dev/null); then
+  export JAVA_HOME
   export PATH="${PATH}:$JAVA_HOME/bin"
   export CPPFLAGS="-I$JAVA_HOME/include"
 fi
