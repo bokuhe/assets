@@ -259,15 +259,28 @@ alias cls='clear'
 #-------------------------------------------------------------
 # Homebrew
 #-------------------------------------------------------------
-export PATH="/opt/homebrew/bin:$PATH"
+if [ -d "/opt/homebrew/bin" ]; then
+  # Apple Silicon Mac
+  export PATH="/opt/homebrew/bin:$PATH"
+elif [ -d "/usr/local/bin" ]; then
+  # Intel Mac
+  export PATH="/usr/local/bin:$PATH"
+fi
 
 #-------------------------------------------------------------
 # Java
 #-------------------------------------------------------------
 JDK_VERSION="17"
 
-if [ -d "/opt/homebrew/opt/openjdk@$JDK_VERSION/libexec/openjdk.jdk" ] && [ ! -L "/Library/Java/JavaVirtualMachines/openjdk-$JDK_VERSION.jdk" ]; then
-  sudo ln -sfn "/opt/homebrew/opt/openjdk@$JDK_VERSION/libexec/openjdk.jdk" "/Library/Java/JavaVirtualMachines/openjdk-$JDK_VERSION.jdk"
+# Determine Homebrew prefix
+if [ -d "/opt/homebrew/opt" ]; then
+  HOMEBREW_PREFIX="/opt/homebrew"
+elif [ -d "/usr/local/opt" ]; then
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
+if [ -n "$HOMEBREW_PREFIX" ] && [ -d "$HOMEBREW_PREFIX/opt/openjdk@$JDK_VERSION/libexec/openjdk.jdk" ] && [ ! -L "/Library/Java/JavaVirtualMachines/openjdk-$JDK_VERSION.jdk" ]; then
+  sudo ln -sfn "$HOMEBREW_PREFIX/opt/openjdk@$JDK_VERSION/libexec/openjdk.jdk" "/Library/Java/JavaVirtualMachines/openjdk-$JDK_VERSION.jdk"
 fi
 
 if JAVA_HOME=$(/usr/libexec/java_home -v $JDK_VERSION 2>/dev/null); then
@@ -304,13 +317,24 @@ eval "$(rbenv init -)"
 #-------------------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  # MACOS
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+  # MACOS - Check Homebrew paths (Apple Silicon and Intel) then manual install
+  if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+    # Apple Silicon Mac (M1/M2/...)
+    \. "/opt/homebrew/opt/nvm/nvm.sh"
+    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+  elif [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+    # Intel Mac
+    \. "/usr/local/opt/nvm/nvm.sh"
+    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+  elif [ -s "$NVM_DIR/nvm.sh" ]; then
+    # Manual install
+    \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  fi
 else
   # LINUX
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 fi
 
 #-------------------------------------------------------------
